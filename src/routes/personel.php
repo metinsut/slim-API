@@ -25,7 +25,7 @@ $app->get("/api/personel", function(Request $request, Response $response){
     // Connect
     $db = $db->connect();
     $stmt = $db->query($sql);
-    $users = $stmt->fetch(PDO::FETCH_OBJ);
+    $users = $stmt->fetchAll(PDO::FETCH_OBJ);
     $db = null;
     echo json_encode($users);
   } catch (PDOException $e) {
